@@ -72,3 +72,5 @@ build
 .chrome
 
 package-lock.json
+
+token.txt
