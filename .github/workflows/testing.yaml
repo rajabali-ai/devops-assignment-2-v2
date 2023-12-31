@@ -23,6 +23,13 @@ jobs:
 
     - name: Build Project
       run: npm run build-react
+
+    # running unit tests on the application
+    - name: Testing The Project
+      run: npm run test-react
+
+
+
             # Deploy All Changes To The Testing Server
     - name: Deploy To Changes To Testing Server
       uses: burnett01/rsync-deployments@6.0.0
