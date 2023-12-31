@@ -23,3 +23,25 @@ jobs:
 
     - name: Build Project
       run: npm run build-react
+            # Deploy All Changes To The Testing Server
+    - name: Deploy To Changes To Testing Server
+      uses: burnett01/rsync-deployments@6.0.0
+      with:
+        switches: -avzr --delete
+        path: ./*
+        remote_path: ~/
+        remote_host: 13.232.228.36
+        remote_user: ubuntu
+        remote_key: ${{ secrets.SSH_KEY }}
+
+    # Install Any New Dependencies
+    - name: Installing Node Modules
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: 13.232.228.36
+        username: ubuntu
+        key: ${{ secrets.SSH_KEY }}
+        port: 22
+        script: |
+          cd App
+          npm install
