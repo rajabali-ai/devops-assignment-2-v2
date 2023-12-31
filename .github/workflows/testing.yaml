@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build_test_deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,6 @@ jobs:
 
     - name: Build Project
       run: npm run build-react
-
     # running unit tests on the application
     - name: Testing The Project
       run: npm run test-react
