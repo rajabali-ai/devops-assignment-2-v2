@@ -48,6 +48,8 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_KEY }}
         port: 22
-        script: |
-          cd App
+        script: 
           npm install
+
+    - name: Running up the app in testing server
+      run: node index.js
